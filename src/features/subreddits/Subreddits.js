@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from './subreddits.module.css';
+
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -16,7 +18,8 @@ export const Subreddits = () => {
             addSubreddit({
                 name: item.display_name,
                 url: item.url,
-                id: item.id
+                id: item.id,
+                icon: item.community_icon.split("?")[0],
             })));
     }), []);
 
@@ -24,7 +27,14 @@ export const Subreddits = () => {
 
     return (
         <aside>
-            {subReddits.map(item => <h2 key={item.id}>{item.name}</h2>)}
+            <ul>
+            {subReddits.map(item => (
+                <li key={item.id}>
+                    <img src={item.icon} />
+                    {item.name}
+                </li>
+            ))}
+            </ul>
         </aside>
     );
 }

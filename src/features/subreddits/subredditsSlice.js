@@ -1,4 +1,3 @@
-import React from 'react';
 import { createSlice } from '@reduxjs/toolkit';
 
 
@@ -8,13 +7,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const subredditsSlice = createSlice({
     name: "subreddits",
-    initialState: {
-        value: 1, 
-    },
+    initialState: [],
     reducers: {
-        addSubreddit: state => {
-            state.value += 1;
-          }
+        addSubreddit: (state, action) => {
+            state.push(action.payload);
+        }
     }
 });
 

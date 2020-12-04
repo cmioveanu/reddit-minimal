@@ -7,15 +7,22 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const subredditsSlice = createSlice({
     name: "subreddits",
-    initialState: [],
+    initialState: { 
+       subReddits: [],
+       activeSubreddit: ""
+    },
     reducers: {
         addSubreddit: (state, action) => {
-            state.push(action.payload);
+            state.subReddits.push(action.payload);
+        },
+
+        changeActiveSubreddit: (state, action) => {
+            state.activeSubreddit = action.payload;
         }
     }
 });
 
-export const {addSubreddit} = subredditsSlice.actions;
+export const {addSubreddit, changeActiveSubreddit} = subredditsSlice.actions;
 export default subredditsSlice.reducer;
 
 

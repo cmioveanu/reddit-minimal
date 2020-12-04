@@ -16,6 +16,7 @@ export const Subreddits = () => {
             addSubreddit({
                 name: item.display_name,
                 url: item.url,
+                id: item.id
             })));
     }), []);
 
@@ -23,7 +24,7 @@ export const Subreddits = () => {
 
     return (
         <aside>
-            {subReddits.map(item => <h2>{item.name}</h2>)}
+            {subReddits.map(item => <h2 key={item.id}>{item.name}</h2>)}
         </aside>
     );
 }

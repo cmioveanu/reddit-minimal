@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import searchBarSlice from '../features/header/searchBar/searchBarSlice';
-import postsSlice from '../features/posts/postsSlice';
+import {postsSlice} from '../features/posts/postsSlice';
 import subredditsSlice from '../features/subreddits/subredditsSlice';
 
 export default configureStore({
@@ -8,5 +8,5 @@ export default configureStore({
     search: searchBarSlice,
     posts: postsSlice,
     subreddits: subredditsSlice
-  },
+  }
 });

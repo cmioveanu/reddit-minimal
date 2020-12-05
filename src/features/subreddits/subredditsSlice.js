@@ -9,7 +9,7 @@ const subredditsSlice = createSlice({
     name: "subreddits",
     initialState: { 
        subReddits: [],
-       activeSubreddit: ""
+       activeSubreddit: "/r/Home/"
     },
     reducers: {
         addSubreddit: (state, action) => {

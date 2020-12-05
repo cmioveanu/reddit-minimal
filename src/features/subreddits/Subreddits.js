@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './subreddits.module.css';
 
-import { useState } from 'react';
-
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 

@@ -11,10 +11,6 @@
     font-weight: bold;
 }
 
-.isShown {
-    display: block;
-}
-
 .isNotShown {
     display: none;
 }

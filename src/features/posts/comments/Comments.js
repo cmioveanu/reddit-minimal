@@ -13,16 +13,14 @@ export const Comments = (props) => {
             .then(jsonComments => setComments(
                 jsonComments.map(comment => (
 
-                    <div>
-                        <div className={styles.comment}>
+                        <div className={styles.comment} key={comment.id}>
                             <p className={styles.commentAuthor}>{comment.author}</p>
                             <p>{comment.body}</p>
                         </div>
-                    </div>
-
+                        
                 ))));
             
-    }, []);
+    }, [props.permalink]);
 
     return (
         <div id={props.id} className={styles.isNotShown}>

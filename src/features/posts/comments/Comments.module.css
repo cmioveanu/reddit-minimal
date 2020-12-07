@@ -1,0 +1,20 @@
+.comment {
+    background-color: #fafafa;
+    border-bottom: 1px solid #fbfbfb;
+    padding: 5px 5px 5px 10px;
+    margin: 10px 0;
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.commentAuthor {
+    font-weight: bold;
+}
+
+.isShown {
+    display: block;
+}
+
+.isNotShown {
+    display: none;
+}

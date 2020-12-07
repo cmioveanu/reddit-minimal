@@ -45,7 +45,7 @@ export const Posts = () => {
                     </div>
                     <div className={styles.postBody}>
                         <h2>{post.title}</h2>
-                        <img src={post.url} />
+                        <img src={post.url} onError={(e) => e.target.style.display = "none"} />
                         <footer>
                             <ul className={styles.postInfos}>
                                 <li><span>{post.author}</span></li>

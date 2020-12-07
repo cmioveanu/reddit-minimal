@@ -16,6 +16,7 @@ img {
 
 .subreddits ul li {
     padding: 1rem 0;
+    padding-left: 0.5rem;
     display: flex;
     align-content: center;
     border-bottom: 2px solid black;
@@ -29,4 +30,8 @@ img {
 .subreddits ul li img {
    border-radius: 50%;
 
+}
+
+.activeSub {
+    background-color: orangered;
 }

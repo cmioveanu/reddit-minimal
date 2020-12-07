@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import redditLogo from './redditLogo.png';
 import './App.css';
 
 import { Header } from './features/header/Header';
@@ -12,7 +13,7 @@ function App() {
       <Header />
       <main>
         <Posts />
-        <Subreddits />
+        <Subreddits logo={redditLogo} />
       </main>
     </div>
   );

@@ -25,7 +25,7 @@ export const Posts = () => {
     return (
         <section className={styles.posts}>
             {posts.map(post => (
-                <section className={styles.post}>
+                <section className={styles.post} key={post.id}>
                     <div className={styles.likes}>
                         {post.ups}
                     </div>
@@ -34,8 +34,7 @@ export const Posts = () => {
                         <img src={post.url} />
                         <footer>
                             <ul className={styles.postInfos}>
-                                <li>{post.author}</li>
-                                {console.log(typeof post.created.toString())}
+                                <li><span>{post.author}</span></li>
                                 <li>{new Date(post.created).toString()}</li>
                                 <li>{post.num_comments}</li>
                                 </ul>

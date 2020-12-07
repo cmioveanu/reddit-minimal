@@ -8,7 +8,10 @@ import { getSubreddits } from '../../app/Reddit';
 import { addSubreddit, changeActiveSubreddit } from './subredditsSlice';
 
 
-export const Subreddits = () => {
+
+
+export const Subreddits = (props) => {
+    const activeSub = useSelector(state => state.subreddits.activeSubreddit);
     const subReddits = useSelector(state => state.subreddits.subReddits);
     const dispatch = useDispatch();
 
@@ -20,7 +23,7 @@ export const Subreddits = () => {
                 id: item.id,
                 icon: item.community_icon.split("?")[0],
             })));
-    }), []);
+    }), [dispatch]);
 
 
     return (
@@ -28,8 +31,10 @@ export const Subreddits = () => {
             <ul>
                 {subReddits.map(item => (
                     <li key={item.id}
-                        onClick={() => dispatch(changeActiveSubreddit(item.url))}>
-                        <img src={item.icon} />
+                        onClick={() => dispatch(changeActiveSubreddit(item.url))}
+                        className={activeSub === item.url ? styles.activeSub : undefined}
+                    >
+                        <img src={item.icon} onError={(e) => e.target.src = props.logo}/>
                         {item.name}
                     </li>
                 ))}
@@ -37,3 +42,11 @@ export const Subreddits = () => {
         </aside>
     );
 }
+
+
+/*
+const images = document.querySelectorAll('.subreddits ul li img');
+
+images.forEach(image => {
+    !image.complete ? image.src = "../../assets/images/redditLogo.png" : image.src = "../../assets/images/redditLogo.png";
+}); */

@@ -32,6 +32,11 @@
     
 }
 
+.postInfos li span {
+    font-weight: bold;
+    color: orangered;
+}
+
 .postBody {
     width: 100%;
 }

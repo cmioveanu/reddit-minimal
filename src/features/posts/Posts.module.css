@@ -1,8 +1,47 @@
 .posts {
     text-align: left;
-    padding: 2%;
+    width: 100%;
 }
 
-.posts div {
-    margin: 5% 0;
+.likes {
+    max-width: 100px;
+}
+
+.post {
+    display: flex;
+    margin: 0 5% 7% 0;
+    padding: 3%;
+    background-color: white;
+
+}
+
+.postInfos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.postInfos {
+    list-style-type: none;
+}
+
+.postInfos li {
+    display: inline;
+    
+}
+
+.postBody {
+    width: 100%;
+}
+
+.postBody img {
+    width: 100%;
+    height: auto;
+}
+
+.postBody footer {
+    margin-top: 2%;
+    border-top: 1px solid black;
 }

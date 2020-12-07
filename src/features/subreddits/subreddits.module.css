@@ -4,21 +4,29 @@ img {
     margin-right: 30px;
 }
 
-aside {
+.subreddits {
     text-align: left;
-    padding: 1%;
+    color: white;
+    min-width: 25%;
 }
 
-ul {
+.subreddits ul {
     list-style-type: none;
 }
 
-li {
-    padding: 0.5rem;
+.subreddits ul li {
+    padding: 1rem 0;
     display: flex;
     align-content: center;
+    border-bottom: 2px solid black;
+
 }
 
-li:hover {
-    background-color: lightgrey;
+.subreddits ul li:hover {
+    background-color: orangered;
+}
+
+.subreddits ul li img {
+   border-radius: 50%;
+
 }

@@ -24,7 +24,7 @@ export const Subreddits = () => {
 
 
     return (
-        <aside>
+        <aside className={styles.subreddits}>
             <ul>
                 {subReddits.map(item => (
                     <li key={item.id}

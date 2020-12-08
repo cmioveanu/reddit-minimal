@@ -5,6 +5,14 @@
 
 .likes {
     max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1.5rem;
+}
+
+.likes p {
+    font-weight: bold;
 }
 
 .post {

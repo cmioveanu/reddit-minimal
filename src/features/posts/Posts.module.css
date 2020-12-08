@@ -12,7 +12,11 @@
 }
 
 .likes p {
-    font-weight: bold;
+    font-weight: bolder;
+}
+
+.likes svg {
+    pointer-events: none;
 }
 
 .post {
@@ -22,7 +26,6 @@
     background-color: white;
 
 }
-
 
 
 .postBody {

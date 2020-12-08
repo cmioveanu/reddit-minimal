@@ -43,3 +43,6 @@
     border-top: 1px solid black;
 }
 
+.upVotesButton:hover {
+    cursor: pointer;
+}

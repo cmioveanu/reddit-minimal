@@ -65,7 +65,7 @@ export const PostFooter = (props) => {
             <ul className={styles.postInfos}>
                 <li><span>{props.postAuthor}</span></li>
                 <li>{dateCalculator(props.postCreated)}</li>
-                <li onClick={onCommentsClicked}>{commentsIcon}<span>{props.postComments}</span></li>
+                <li onClick={onCommentsClicked} className={styles.commentsIcon}>{commentsIcon}<span>{props.postComments}</span></li>
             </ul>
             <Comments permalink={props.postPermalink}
                 id={props.postId}

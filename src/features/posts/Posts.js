@@ -79,9 +79,9 @@ export const Posts = () => {
             {posts.map(post => (
                 <section className={styles.post} key={post.id}>
                     <div className={styles.likes}>
-                        <div onClick={onUpArrowClicked}>{upArrow}</div>
+                        <div onClick={onUpArrowClicked} class={styles.upVotesButton}>{upArrow}</div>
                         <p>{post.ups >= 1000 ? (Math.round(post.ups/1000 * 10) / 10 + "k") : post.ups}</p>
-                        <div onClick={onDownArrowClicked}>{downArrow}</div>
+                        <div onClick={onDownArrowClicked} class={styles.upVotesButton}>{downArrow}</div>
                     </div>
 
                     <div className={styles.postBody}>

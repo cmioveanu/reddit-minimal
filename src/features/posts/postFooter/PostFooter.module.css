@@ -31,3 +31,7 @@
     font-weight: bold;
     color: orangered;
 }
+
+.commentsIcon:hover {
+    cursor: pointer;
+}

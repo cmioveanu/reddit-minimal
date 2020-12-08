@@ -35,7 +35,6 @@ export const Posts = () => {
                     <div className={styles.likes}>
                         {post.ups}
                     </div>
-                    {console.log(post)}
                     <div className={styles.postBody}>
                         <h2>{post.title}</h2>
                         <img src={post.url} onError={(e) => e.target.style.display = "none"} />

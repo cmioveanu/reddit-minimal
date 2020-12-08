@@ -1,9 +1,36 @@
 import React from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
 
 import { Comments } from '../comments/Comments';
 
 import styles from './PostFooter.module.css';
+
+export const dateCalculator = (created) => {
+    const currentDate = Date.now();
+    const postDate = new Date(created * 1000);
+
+    const dateDifferenceInTime = currentDate - postDate;
+
+    const dateDifferenceInMonths = dateDifferenceInTime / (1000 * 3600 * 24 * 30.4);
+    const dateDifferenceInDays = dateDifferenceInTime / (1000 * 3600 * 24);
+    const dateDifferenceInHours = dateDifferenceInTime / (1000 * 3600);
+    const dateDifferenceInMinutes = dateDifferenceInTime / (1000 * 60);
+
+    if (dateDifferenceInMonths > 12) {
+        return "more than a year ago";
+    } else if (dateDifferenceInMonths >= 1) {
+        return Math.round(dateDifferenceInMonths) + " months ago";
+    } else if (dateDifferenceInDays >= 1) {
+        return Math.round(dateDifferenceInDays) + " days ago";
+    } else if (dateDifferenceInHours >= 1) {
+        return Math.round(dateDifferenceInHours) + " hours ago";
+    } else if (dateDifferenceInMinutes >= 1) {
+        return Math.round(dateDifferenceInMinutes) + " minutes ago";
+    } else {
+        return "less than a minute ago";
+    }
+}
+
 
 export const PostFooter = (props) => {
     const [active, setActive] = useState(false);
@@ -24,7 +51,7 @@ export const PostFooter = (props) => {
 
     const onCommentsClicked = () => {
         const postComments = document.getElementById(props.postId);
-        if(active) {
+        if (active) {
             postComments.style.display = "none";
             setActive(false);
         } else {
@@ -33,42 +60,16 @@ export const PostFooter = (props) => {
         }
     }
 
-    const dateCalculator = () => {
-        const currentDate = Date.now();
-        const postDate = new Date(props.postCreated *1000);
-
-        const dateDifferenceInTime = currentDate - postDate;
-        
-        const dateDifferenceInMonths = dateDifferenceInTime / (1000 * 3600 * 24 * 30.4);
-        const dateDifferenceInDays = dateDifferenceInTime / (1000 * 3600 * 24);
-        const dateDifferenceInHours = dateDifferenceInTime / (1000 * 3600);
-        const dateDifferenceInMinutes = dateDifferenceInTime / (1000 * 60);
-
-        let chosenDate;
-
-        if(dateDifferenceInMonths > 12) {
-            return "more than a year ago";
-        } else if(dateDifferenceInMonths >= 1) {
-            return Math.round(dateDifferenceInMonths) + " months ago";
-        } else if(dateDifferenceInDays >= 1) {
-            return Math.round(dateDifferenceInDays) + " days ago";
-        } else if (dateDifferenceInHours >= 1) {
-            return Math.round(dateDifferenceInHours) + " hours ago";
-        } else if(dateDifferenceInMinutes >= 1) {
-            return Math.round(dateDifferenceInMinutes) + " minutes ago";
-        } else {
-            return "less than a minute ago";
-        }
-    }
-
     return (
         <footer>
             <ul className={styles.postInfos}>
                 <li><span>{props.postAuthor}</span></li>
-                <li>{dateCalculator()}</li>
+                <li>{dateCalculator(props.postCreated)}</li>
                 <li onClick={onCommentsClicked}>{commentsIcon}<span>{props.postComments}</span></li>
             </ul>
-            <Comments permalink={props.postPermalink} id={props.postId} />
+            <Comments permalink={props.postPermalink}
+                id={props.postId}
+            />
         </footer>
     );
 };

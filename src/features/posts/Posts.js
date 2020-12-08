@@ -35,17 +35,18 @@ export const Posts = () => {
                     <div className={styles.likes}>
                         {post.ups}
                     </div>
+                    {console.log(post)}
                     <div className={styles.postBody}>
                         <h2>{post.title}</h2>
                         <img src={post.url} onError={(e) => e.target.style.display = "none"} />
-                        <PostFooter postId={post.id} postAuthor={post.author} postCreated={post.created} postPermalink={post.permalink} postComments={post.num_comments}/>
+                        <PostFooter postId={post.id}
+                                    postAuthor={post.author}
+                                    postCreated={post.created_utc}
+                                    postPermalink={post.permalink}
+                                    postComments={post.num_comments}/>
                     </div>
                 </section>
-                //likes + like & dislike button, time posted, comment number, author profile photo, post image if any
-                //post.url
-
-
-
+                
             ))}
         </section>
     );

@@ -34,3 +34,12 @@
     font-style: italic;
     padding-left: 1rem;
 }
+
+.posts a {
+    color: black;
+    text-decoration: none;
+}
+
+.posts a:hover {
+    color:orangered;
+}

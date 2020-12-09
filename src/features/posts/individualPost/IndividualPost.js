@@ -1,23 +1,21 @@
+
 import React from 'react';
-import styles from './Posts.module.css';
-import {Link} from 'react-router-dom';
+import styles from './IndividualPost.module.css';
 
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-
-import { getSubredditPosts } from '../../app/Reddit';
-import { PostFooter } from './postFooter/PostFooter';
-import { Likes } from './likes/Likes';
-import {changeActivePostId} from './individualPost/individualPostSlice';
-import {changePosts} from './postsSlice';
+import {changePosts} from '../postsSlice';
+import { getSubredditPosts } from '../../../app/Reddit';
 
 
+import { PostFooter } from '../postFooter/PostFooter';
+import { Likes } from '../likes/Likes';
 
-export const Posts = () => {
+export const IndividualPost = () => {
     const activeSub = useSelector(state => state.subreddits.activeSubreddit);
-    const activeSearchInput = useSelector(state => state.search);
-    const posts = useSelector(state => state.posts);
+    const activePostId = useSelector(state => state.individualPostId);
+
 
     const dispatch = useDispatch();
 
@@ -25,23 +23,28 @@ export const Posts = () => {
         .then(response => {
             dispatch(changePosts(response));
         }), [activeSub]);
+    
+    const posts = useSelector(state => state.posts);
 
-    const filteredPosts = posts.filter(post => post.title.toLowerCase().includes(activeSearchInput.toLowerCase()));     //select only posts that include the search bar value
+    console.log(posts);
+    console.log(activePostId);
+    //const post = posts.filter(post => post.id === activePostId);
+    const post = posts[0];
+
+
 
     return (
         <section className={styles.posts}>
-            {filteredPosts.map(post => (
 
                 <section className={styles.post} key={post.id}>
                     <Likes postUps={post.ups} />
 
                     <div className={styles.postBody}>
-                        <Link to={"/" + "individualPost" + post.name} onClick={() => dispatch(changeActivePostId(post.name))}>
                             <h2>{post.title}</h2>
                             <p>{post.selftext.substring(0, 600) + (post.selftext.length > 600 ? " [...]" : "")}</p>
                             {post.selftext.length > 600 ? <p className={styles.readMore}>read more...</p> : null}
                             <img src={post.url} onError={(e) => e.target.style.display = "none"} />
-                        </Link>
+
                         <PostFooter postId={post.id}
                             postAuthor={post.author}
                             postCreated={post.created_utc}
@@ -51,7 +54,6 @@ export const Posts = () => {
                     </div>
                 </section>
 
-            ))}
         </section>
     );
 }

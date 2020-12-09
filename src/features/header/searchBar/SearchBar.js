@@ -1,21 +1,24 @@
 import React from 'react';
-import {useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 import styles from './SearchBar.module.css';
 
+import {changeActiveSearch} from './searchBarSlice';
+
 export const SearchBar = () => {
-    const [search, setSearch] = useState("");
+    const dispatch = useDispatch();
+    
     const activeSubSliced = useSelector(state => state.subreddits.activeSubreddit).slice(3, -1);
-    console.log(activeSubSliced);
+    const searchBarValue = useSelector(state => state.search);
+    
     const onTextChange = (e) => {
-        setSearch(e.target.value);
+        dispatch(changeActiveSearch(e.target.value));
     }
 
     return (
         <input className={styles.searchBar}
             id="Search"
-            value={search}
+            value={searchBarValue}
             placeholder={"Search posts in " + activeSubSliced}
             onChange={onTextChange}
         />

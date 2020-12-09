@@ -27,7 +27,7 @@ export const Comments = (props) => {
     }, [props.permalink]);
 
     return (
-        <div id={props.id} className={styles.isNotShown}>
+        <div id={props.id} className={props.visible === true ? styles.isShown : styles.isNotShown}>
             {comments}
         </div>
     );

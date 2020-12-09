@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './Header.module.css';
+import {Link} from 'react-router-dom';
 
-import {useDispatch} from 'react-redux';
-import {changeActiveSubreddit } from '../subreddits/subredditsSlice';
+import { useDispatch } from 'react-redux';
+import { changeActiveSubreddit } from '../subreddits/subredditsSlice';
 
-import {SearchBar} from './searchBar/SearchBar';
+import { SearchBar } from './searchBar/SearchBar';
 
 export const Header = () => {
     const dispatch = useDispatch();
@@ -15,8 +16,10 @@ export const Header = () => {
 
     return (
         <header className={styles.mainHeader}>
-            <h1 onClick={onTitleClicked}>Reddit<span>Minimal</span></h1>
-            <SearchBar className={styles.searchBar}/>
+            <Link to="/">
+                <h1 onClick={onTitleClicked}>Reddit<span>Minimal</span></h1>
+            </Link>
+            <SearchBar className={styles.searchBar} />
         </header>
     );
 }

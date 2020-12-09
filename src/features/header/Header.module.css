@@ -6,6 +6,10 @@
 
 }
 
+.mainHeader a {
+    text-decoration: none;
+}
+
 .mainHeader h1 {
     width: 33%;
     min-width: 250px;

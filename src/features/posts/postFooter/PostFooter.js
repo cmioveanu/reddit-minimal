@@ -69,6 +69,7 @@ export const PostFooter = (props) => {
             </ul>
             <Comments permalink={props.postPermalink}
                 id={props.postId}
+                visible={props.visible}
             />
         </footer>
     );

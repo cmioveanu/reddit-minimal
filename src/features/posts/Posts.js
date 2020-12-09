@@ -21,7 +21,7 @@ export const Posts = () => {
         .then(response => {
             setPosts(response);
         }), [activeSub]);
-   
+
     const filteredPosts = posts.filter(post => post.title.toLowerCase().includes(activeSearchInput.toLowerCase()));     //select only posts that include the search bar value
 
     return (
@@ -32,6 +32,7 @@ export const Posts = () => {
 
                     <div className={styles.postBody}>
                         <h2>{post.title}</h2>
+                        <p>{post.selftext.substring(0, 1000)}</p>
                         <img src={post.url} onError={(e) => e.target.style.display = "none"} />
                         <PostFooter postId={post.id}
                             postAuthor={post.author}

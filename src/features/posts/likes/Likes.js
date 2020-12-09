@@ -28,9 +28,9 @@ export const Likes = (props) => {
     
     return (
         <div className={styles.likes}>
-            <div onClick={onUpArrowClicked} class={styles.upVotesButton}>{upArrow}</div>
+            <div onClick={onUpArrowClicked} className={styles.upVotesButton}>{upArrow}</div>
             <p>{props.postUps >= 1000 ? (Math.round(props.postUps / 1000 * 10) / 10 + "k") : props.postUps}</p>
-            <div onClick={onDownArrowClicked} class={styles.upVotesButton}>{downArrow}</div>
+            <div onClick={onDownArrowClicked} className={styles.upVotesButton}>{downArrow}</div>
         </div>
     );
 }

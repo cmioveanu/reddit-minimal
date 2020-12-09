@@ -20,7 +20,6 @@ export const Comments = (props) => {
                             <p className={styles.commentDate}>{dateCalculator(comment.created_utc)}</p>
                         </div>
                         <p>{comment.body}</p>
-                        {console.log(comment)}
                     </div>
 
                 ))));

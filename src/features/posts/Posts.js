@@ -7,14 +7,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { getSubredditPosts } from '../../app/Reddit';
 import { PostFooter } from './postFooter/PostFooter';
-import {Likes} from './likes/Likes';
+import { Likes } from './likes/Likes';
 
 
 
 export const Posts = () => {
     const activeSub = useSelector(state => state.subreddits.activeSubreddit);
-    const activeSearchInput = useSelector(state => state.searchInput);
-    //const dispatch = useDispatch();
+    const activeSearchInput = useSelector(state => state.search);
 
     const [posts, setPosts] = useState([]);
 
@@ -22,18 +21,12 @@ export const Posts = () => {
         .then(response => {
             setPosts(response);
         }), [activeSub]);
-
-    useEffect(() => {
-        if(activeSearchInput) {
-            setPosts(prevPosts => prevPosts.filter(post => post.title.includes(activeSearchInput)));
-        }
-    }, [activeSearchInput]);
-
    
+    const filteredPosts = posts.filter(post => post.title.toLowerCase().includes(activeSearchInput.toLowerCase()));     //select only posts that include the search bar value
 
     return (
         <section className={styles.posts}>
-            {posts.map(post => (
+            {filteredPosts.map(post => (
                 <section className={styles.post} key={post.id}>
                     <Likes postUps={post.ups} />
 

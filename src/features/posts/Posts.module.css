@@ -1,13 +1,13 @@
 .posts {
     text-align: left;
-    width: 100%;
+    width: 66%;
 }
 
 
 .post {
     display: flex;
     margin: 0 5% 5% 0;
-    padding: 3%;
+    padding: 5%;
     background-color: white;
 
 }
@@ -15,6 +15,7 @@
 
 .postBody {
     width: 100%;
+    overflow: hidden;
 }
 
 .postBody img {
@@ -28,3 +29,8 @@
     border-top: 1px solid black;
 }
 
+.readMore {
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 1rem;
+}

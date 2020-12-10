@@ -29,11 +29,11 @@ export const Subreddits = (props) => {
 
 
     return (
-        <aside className={styles.subreddits}>
+        <section className={styles.subreddits}>
             <ul>
                 {subReddits.map(item => (
-                    <Link to="/">
-                        <li key={item.id}
+                    <Link to="/" key={item.id}>
+                        <li 
                             onClick={() => dispatch(changeActiveSubreddit(item.url))}
                             className={activeSub === item.url ? styles.activeSub : undefined}
                         >
@@ -43,7 +43,7 @@ export const Subreddits = (props) => {
                     </Link>
                 ))}
             </ul>
-        </aside>
+        </section>
     );
 }
 

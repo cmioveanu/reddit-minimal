@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { PostFooter } from './postFooter/PostFooter';
 import { Likes } from './likes/Likes';
 import {changeActivePostId} from './individualPost/individualPostSlice';
+import {SubredditsDropdown} from '../subredditsDropdown/SubredditsDropdown';
+
 
 
 export const Posts = () => {
@@ -20,6 +22,7 @@ export const Posts = () => {
 
     return (
         <section className={styles.posts}>
+             <SubredditsDropdown />
             {filteredPosts.map(post => (
 
                 <section className={styles.post} key={post.id}>

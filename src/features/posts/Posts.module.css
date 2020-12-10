@@ -43,3 +43,9 @@
 .posts a:hover {
     color:orangered;
 }
+
+@media only screen and (max-width: 800px) {
+    .posts {
+        width: 100%;
+    }
+}

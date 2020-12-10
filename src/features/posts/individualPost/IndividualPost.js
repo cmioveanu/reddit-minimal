@@ -19,7 +19,7 @@ export const IndividualPost = () => {
 
     return (
         <section className={styles.posts}>
-            <Link to="/"><button class={styles.goBack}>{backArrow} Go back to all posts</button></Link>
+            <Link to="/"><button className={styles.goBack}>{backArrow} Go back to all posts</button></Link>
             {selectedPost.map(post => (
 
                 <section className={styles.post} key={post.id}>

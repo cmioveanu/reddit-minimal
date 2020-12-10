@@ -37,3 +37,13 @@
     transform: translateY(0px)
   }
 }
+
+
+
+main {
+  display: flex;
+  justify-content: space-between;
+  /*background-color: #fafafa;*/
+  background-color: #1a1a1a;
+  padding: 3%;
+}

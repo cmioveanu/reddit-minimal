@@ -11,6 +11,11 @@ img {
     min-width: 25%;
 }
 
+.subreddits a {
+    color: white;
+    text-decoration: none;
+}
+
 .subreddits ul {
     list-style-type: none;
 }

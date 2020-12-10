@@ -43,3 +43,24 @@
 .posts a:hover {
     color:orangered;
 }
+
+.goBack {
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin-bottom: 1rem;
+    padding: 5px 10px;
+}
+
+.goBack:hover {
+    background-color: red;
+    color: white;
+}
+
+.goBack:active {
+    background-color: red;
+    color: white;
+    border: none;
+}

@@ -6,6 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { PostFooter } from '../postFooter/PostFooter';
 import { Likes } from '../likes/Likes';
+import { Link } from 'react-router-dom';
+import {backArrow} from '../../../app/utils';
+
 
 
 export const IndividualPost = () => {
@@ -16,15 +19,16 @@ export const IndividualPost = () => {
 
     return (
         <section className={styles.posts}>
+            <Link to="/"><button class={styles.goBack}>{backArrow} Go back to all posts</button></Link>
             {selectedPost.map(post => (
 
                 <section className={styles.post} key={post.id}>
                     <Likes postUps={post.ups} />
 
                     <div className={styles.postBody}>
-                            <h2>{post.title}</h2>
-                            <p>{post.selftext}</p>
-                            <img src={post.url} onError={(e) => e.target.style.display = "none"} />
+                        <h2>{post.title}</h2>
+                        <p>{post.selftext}</p>
+                        <img src={post.url} onError={(e) => e.target.style.display = "none"} />
 
                         <PostFooter postId={post.id}
                             postAuthor={post.author}

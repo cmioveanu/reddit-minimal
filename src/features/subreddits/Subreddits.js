@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './subreddits.module.css';
 
+import { Link } from 'react-router-dom';
+
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -30,13 +32,15 @@ export const Subreddits = (props) => {
         <aside className={styles.subreddits}>
             <ul>
                 {subReddits.map(item => (
-                    <li key={item.id}
-                        onClick={() => dispatch(changeActiveSubreddit(item.url))}
-                        className={activeSub === item.url ? styles.activeSub : undefined}
-                    >
-                        <img src={item.icon} onError={(e) => e.target.src = props.logo}/>
-                        {item.name}
-                    </li>
+                    <Link to="/">
+                        <li key={item.id}
+                            onClick={() => dispatch(changeActiveSubreddit(item.url))}
+                            className={activeSub === item.url ? styles.activeSub : undefined}
+                        >
+                            <img src={item.icon} onError={(e) => e.target.src = props.logo} />
+                            {item.name}
+                        </li>
+                    </Link>
                 ))}
             </ul>
         </aside>

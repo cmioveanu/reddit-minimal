@@ -1,0 +1,2 @@
+[build]
+publish = “your_internal_HUGO_directory/public/”
